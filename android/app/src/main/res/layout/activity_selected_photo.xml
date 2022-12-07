@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.SelectedPhotoActivity"
+    android:id="@+id/layoutPhoto">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/baseline_clear_white_36dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/deleteButton"
+        android:translationZ="1dp"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PaulinaApp01</string>
+    <string name="test">TESTTTT</string>
+    <string name="arrow">Arrow</string>
+    <string name="camera">camera</string>
+    <string name="albums">albums</string>
+    <string name="collage">collage</string>
+    <string name="network">network</string>
+    <string name="_2nd">2nd</string>
+    <string name="ludzie">ludzie</string>
+    <string name="new_albums">new albums</string>
+    <string name="edit">notes</string>
+</resources>
