@@ -65,7 +65,7 @@ public class CollageActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected Bitmap onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         Log.d("xxx", String.valueOf(requestCode));
@@ -89,6 +89,8 @@ public class CollageActivity extends AppCompatActivity {
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                 byte[] byteArray = stream.toByteArray();
+
+                return bitmap;
 
 //                FileOutputStream fs = null;
 //                try {
