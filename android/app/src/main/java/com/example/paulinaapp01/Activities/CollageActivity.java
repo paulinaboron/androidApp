@@ -49,7 +49,8 @@ public class CollageActivity extends AppCompatActivity {
             iv.setX(img.getX());
             iv.setY(img.getY());
             iv.setLayoutParams(new LinearLayout.LayoutParams(img.getWidth(),img.getHeight()));
-            iv.setBackgroundColor(Color.parseColor("#ff00ff"));
+            iv.setImageResource(R.drawable.baseline_photo_camera_white_36dp);
+            iv.setPadding(30, 30, 30, 30);
             container.addView(iv);
 
             iv.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +82,9 @@ public class CollageActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     bitmap = BitmapFactory.decodeStream(inpStream);
+
                 }
+
 
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
