@@ -16,12 +16,11 @@
         android:layout_height="match_parent" />
 
     <ImageView
+        android:id="@+id/newDirButton"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:src="@drawable/baseline_expand_less_white_36dp"
         android:layout_alignParentBottom="true"
-        android:id="@+id/newDirButton"
-        />
+        android:src="@drawable/baseline_expand_less_white_36dp" />
 
 
 </RelativeLayout>

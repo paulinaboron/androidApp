@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
                 String[] opcje = {"aparat", "galeria"};
                 alert.setItems(opcje, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        // wyswietl opcje[which]);
                         Log.d("xxx", String.valueOf(which));
 
                         if (which == 0) {

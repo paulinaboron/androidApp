@@ -30,7 +30,7 @@ public class CollagesChoiceActivity extends AppCompatActivity {
         Log.d("xxx","szerokość ekranu " + size.x);
         Log.d("xxx","wysokość ekranu " +size.y);
         int halfX = Math.round(size.x/2);
-        int halfY = size.y/2;
+        int halfY = size.y/2 - 50;
 
         ImageView collage1 = findViewById(R.id.collage1);
         collage1.setOnClickListener(new View.OnClickListener() {
