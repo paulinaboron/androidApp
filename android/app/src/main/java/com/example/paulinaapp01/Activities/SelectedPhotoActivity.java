@@ -10,11 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.example.paulinaapp01.Adapters.UploadAdapter;
 import com.example.paulinaapp01.R;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class SelectedPhotoActivity extends AppCompatActivity {
 
@@ -23,6 +27,20 @@ public class SelectedPhotoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_photo);
         Log.d("xxx", "SELECTED");
+
+        ArrayList<String> list = new ArrayList();
+        list.add("upload");
+        list.add("share");
+        list.add("crop");
+
+        UploadAdapter adapter = new UploadAdapter (
+                SelectedPhotoActivity.this,
+                R.layout.upload_row,
+                list
+        );
+        ListView lv = findViewById(R.id.uploadMenu);
+        lv.setAdapter(adapter);
+
 
 
         Bundle bundle = getIntent().getExtras();

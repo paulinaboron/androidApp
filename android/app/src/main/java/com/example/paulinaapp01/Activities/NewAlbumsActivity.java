@@ -43,6 +43,8 @@ public class NewAlbumsActivity extends AppCompatActivity {
         dirPlaces.mkdir();
         File dirThings = new File(dir, "rzeczy");
         dirThings.mkdir();
+        File dirCollages = new File(dir, "collages");
+        dirCollages.mkdir();
 
         File[] files = dir.listFiles(); // tablica plików
         refreshDirs(dir);

@@ -30,7 +30,7 @@ public class CollagesChoiceActivity extends AppCompatActivity {
         Log.d("xxx","szerokość ekranu " + size.x);
         Log.d("xxx","wysokość ekranu " +size.y);
         int halfX = Math.round(size.x/2);
-        int halfY = size.y/2 - 50;
+        int halfY = size.y/2;
 
         ImageView collage1 = findViewById(R.id.collage1);
         collage1.setOnClickListener(new View.OnClickListener() {
@@ -54,9 +54,9 @@ public class CollagesChoiceActivity extends AppCompatActivity {
                 Log.d("xxx", "Click collages 2");
 
                 list.clear();
-                list.add(new ImageData(0,0,200,100));
-                list.add(new ImageData(0,100,100,100));
-                list.add(new ImageData(100,100,100,100));
+                list.add(new ImageData(0,0,size.x,size.y/3));
+                list.add(new ImageData(0,size.y/3,size.x,size.y/3));
+                list.add(new ImageData(0, (int) (size.y*0.6667), size.x,size.y/3));
 
                 goToNextActivity();
             }
