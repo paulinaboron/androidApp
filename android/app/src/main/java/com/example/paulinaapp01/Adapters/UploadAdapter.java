@@ -1,6 +1,7 @@
 package com.example.paulinaapp01.Adapters;
 
 import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ public class UploadAdapter extends ArrayAdapter {
     private ArrayList<String> _list;
     private Context _context;
     private int _resource;
+    private ArrayList<Integer> _icons;
 
     public UploadAdapter(@NonNull Context context, int resource, @NonNull ArrayList objects) {
         super(context, resource, objects);
@@ -29,7 +31,12 @@ public class UploadAdapter extends ArrayAdapter {
         this._list= objects;
         this._context = context;
         this._resource = resource;
+        this._icons = new ArrayList<>();
+        _icons.add(R.drawable.upload);
+        _icons.add(R.drawable.share);
+        _icons.add(R.drawable.crop);
     }
+
 
 
 
@@ -40,7 +47,7 @@ public class UploadAdapter extends ArrayAdapter {
         convertView = inflater.inflate(_resource, null);
 
         ImageView iv = (ImageView) convertView.findViewById(R.id.uploadIcon);
-//        iv.setImageURI();
+        iv.setImageResource(_icons.get(position));
         iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

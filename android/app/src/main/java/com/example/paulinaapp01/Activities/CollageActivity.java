@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.paulinaapp01.Helpers.ImageData;
 import com.example.paulinaapp01.R;
@@ -118,6 +119,7 @@ public class CollageActivity extends AppCompatActivity {
                     fs = new FileOutputStream(path);
                     fs.write(byteArray);
                     fs.close();
+                    Toast.makeText(getApplicationContext(),"Saved",Toast.LENGTH_SHORT).show();
                 } catch (IOException e) {
                     e.printStackTrace();
                     Log.d("xxx", e.getMessage());
