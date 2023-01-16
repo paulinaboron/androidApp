@@ -6,6 +6,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -22,6 +24,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.paulinaapp01.Adapters.RecAdapter;
+import com.example.paulinaapp01.Helpers.Item;
 import com.example.paulinaapp01.R;
 
 import java.io.ByteArrayOutputStream;
@@ -42,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout lNewAlbums;
     private LinearLayout lNotes;
     private LinearLayout lCollages;
+
+    private ArrayList<Item> list = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private RecAdapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +133,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        recyclerView = findViewById(R.id.recyclerView);
+        list.add(new Item("a", "d"));
+        list.add(new Item("b", "e"));
+        list.add(new Item("c", "f"));
+        layoutManager = new LinearLayoutManager(MainActivity.this);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new RecAdapter(list);
+        recyclerView.setAdapter(adapter);
     }
 
     public void checkPermission(String permission, int requestCode) {

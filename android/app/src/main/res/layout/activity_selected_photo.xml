@@ -21,16 +21,32 @@ android:layout_height="match_parent">
 
 </RelativeLayout>
 
-<!--ListView które będzie stanowić wysuwane menu, max 320 dp szerokości-->
 
-<ListView
+<!--<LinearLayout-->
+<!--    android:layout_width="300dp"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:orientation="vertical"-->
+<!--    >-->
+<!--        <EditText-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/ipField"/>-->
 
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/save_ip"-->
+<!--            android:id="@+id/saveIpButton"/>-->
+
+    <ListView
     android:layout_width="300dp"
     android:layout_height="match_parent"
     android:layout_gravity="start"
     android:background="#000000"
     android:id="@+id/uploadMenu"
-
     />
+
+<!--</LinearLayout>-->
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

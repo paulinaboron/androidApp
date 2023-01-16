@@ -10,4 +10,5 @@
     <string name="ludzie">ludzie</string>
     <string name="new_albums">new albums</string>
     <string name="edit">notes</string>
+    <string name="save_ip">Save IP</string>
 </resources>

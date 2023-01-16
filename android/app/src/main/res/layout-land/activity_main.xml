@@ -51,6 +51,7 @@
             android:orientation="vertical"
             android:layout_weight="1"
             android:gravity="center"
+            android:id="@+id/layoutCamera"
             >
             <ImageView
                 android:layout_width="80dp"

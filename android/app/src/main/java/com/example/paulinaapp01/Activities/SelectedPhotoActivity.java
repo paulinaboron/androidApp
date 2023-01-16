@@ -2,6 +2,7 @@ package com.example.paulinaapp01.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class SelectedPhotoActivity extends AppCompatActivity {
+    private ProgressDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,5 +85,10 @@ public class SelectedPhotoActivity extends AppCompatActivity {
                 photo.delete();
             }
         });
+
+//        pDialog = new ProgressDialog();
+//        pDialog.setMessage("komunikat");
+//        pDialog.setCancelable(false); // nie da się zamknąć klikając w ekran
+//        pDialog.show();
     }
 }

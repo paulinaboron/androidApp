@@ -15,10 +15,7 @@ public class Networking {
         NetworkInfo netInfoWifi = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         Log.d("xxx", "isInternet: " + netInfoWifi);
 
-        if (netInfoWifi != null && netInfoWifi.isConnectedOrConnecting())
-            return true;
-        else
-            return false;
+        return netInfoWifi != null && netInfoWifi.isConnectedOrConnecting();
     }
 
 
