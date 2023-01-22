@@ -73,10 +73,6 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("xxx", String.valueOf(which));
 
                         if (which == 0) {
-//                            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-//                            intent.putExtra("owoc", "śliwka");
-//                            startActivity(intent);
-
                             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                             if (intent.resolveActivity(getPackageManager()) != null) {
                                 startActivityForResult(intent, 200); // 200 - stała wartość, która później posłuży do identyfikacji tej akcji
@@ -157,20 +153,16 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        //
         switch (requestCode) {
             case 100:
                 if (grantResults.length > 0 &&
                         grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    //tak
                     Log.d("xxx", "Tak");
                 } else {
-                    //nie
                     Log.d("xxx", "Nie");
                 }
                 break;
             case 101:
-
                 break;
         }
     }

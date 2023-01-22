@@ -3,17 +3,23 @@ package com.example.paulinaapp01.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.paulinaapp01.Adapters.UploadAdapter;
 import com.example.paulinaapp01.R;
@@ -22,6 +28,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class SelectedPhotoActivity extends AppCompatActivity {
+    public static String path;
     private ProgressDialog pDialog;
 
     @Override
@@ -29,6 +36,14 @@ public class SelectedPhotoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_photo);
         Log.d("xxx", "SELECTED");
+
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(SelectedPhotoActivity.this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("ip", "192.168.119.108");
+        editor.apply();
 
         ArrayList<String> list = new ArrayList();
         list.add("upload");
@@ -43,21 +58,17 @@ public class SelectedPhotoActivity extends AppCompatActivity {
         ListView lv = findViewById(R.id.uploadMenu);
         lv.setAdapter(adapter);
 
-
-
         Bundle bundle = getIntent().getExtras();
-        String path = bundle.getString("path").toString();
+        path = bundle.getString("path").toString();
         Log.d("xxx", path);
 
-
-        Bitmap bitmap;
         BitmapFactory.Options options = new BitmapFactory.Options();    //opcje przekształcania bitmapy
         options.inSampleSize = 4; // zmniejszenie jakości bitmapy 4
-        bitmap = BitmapFactory.decodeFile(path, options);
+        Bitmap bitmap = BitmapFactory.decodeFile(path, options);
         ImageView iv = new ImageView(SelectedPhotoActivity.this);
         iv.setImageBitmap(bitmap);                // wstawienie bitmapy do ImageView
         iv.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)); //jego wielkość
-        RelativeLayout layout = findViewById(R.id.layoutPhoto);
+        LinearLayout layout = findViewById(R.id.layoutPhoto);
         layout.addView(iv);
 
         iv.setOnClickListener(new View.OnClickListener() {
@@ -86,8 +97,22 @@ public class SelectedPhotoActivity extends AppCompatActivity {
             }
         });
 
-//        pDialog = new ProgressDialog();
-//        pDialog.setMessage("komunikat");
+        Button saveIpButton = findViewById(R.id.saveIpButton);
+        saveIpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("xxx", "Save IP");
+                EditText ipField = findViewById(R.id.ipField);
+                String address = String.valueOf(ipField.getText());
+                Log.d("xxx", address);
+                editor.putString("ip", "192.168.119.108");
+                editor.apply();
+                Toast.makeText(getApplicationContext(),"Saved",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+//        pDialog = new ProgressDialog(this);
+//        pDialog.setMessage("ładowanie");
 //        pDialog.setCancelable(false); // nie da się zamknąć klikając w ekran
 //        pDialog.show();
     }

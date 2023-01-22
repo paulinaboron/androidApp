@@ -11,4 +11,5 @@
     <string name="new_albums">new albums</string>
     <string name="edit">notes</string>
     <string name="save_ip">Save IP</string>
+    <string name="ip_address">192.168.119.108</string>
 </resources>
