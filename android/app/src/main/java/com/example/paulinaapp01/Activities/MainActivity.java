@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -46,12 +47,14 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout lNewAlbums;
     private LinearLayout lNotes;
     private LinearLayout lCollages;
+    private LinearLayout lNetwork;
 
     private ArrayList<Item> list = new ArrayList<>();
     private RecyclerView recyclerView;
     private RecAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,6 +129,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d("xxx", "Click collages");
                 Intent intent = new Intent(MainActivity.this, CollagesChoiceActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        lNetwork = findViewById(R.id.lNetwork);
+        lNetwork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("xxx", "Click network");
+                Intent intent = new Intent(MainActivity.this, NetworkActivity.class);
                 startActivity(intent);
             }
         });

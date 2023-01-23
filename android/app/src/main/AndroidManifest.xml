@@ -15,7 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PaulinaApp01"
         android:usesCleartextTraffic="true">
-        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+        <activity
+            android:name=".Activities.NetworkActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
         <activity
             android:name=".Activities.CollageActivity"
             android:exported="true" />

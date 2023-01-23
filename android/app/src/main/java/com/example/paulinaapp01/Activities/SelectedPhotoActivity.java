@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.paulinaapp01.Adapters.UploadAdapter;
+import com.example.paulinaapp01.Helpers.CropView;
 import com.example.paulinaapp01.R;
 
 import java.io.File;
@@ -68,7 +69,7 @@ public class SelectedPhotoActivity extends AppCompatActivity {
         ImageView iv = new ImageView(SelectedPhotoActivity.this);
         iv.setImageBitmap(bitmap);                // wstawienie bitmapy do ImageView
         iv.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)); //jego wielkość
-        LinearLayout layout = findViewById(R.id.layoutPhoto);
+        RelativeLayout layout = findViewById(R.id.layoutPhoto);
         layout.addView(iv);
 
         iv.setOnClickListener(new View.OnClickListener() {
@@ -110,6 +111,8 @@ public class SelectedPhotoActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Saved",Toast.LENGTH_SHORT).show();
             }
         });
+
+
 
 //        pDialog = new ProgressDialog(this);
 //        pDialog.setMessage("ładowanie");

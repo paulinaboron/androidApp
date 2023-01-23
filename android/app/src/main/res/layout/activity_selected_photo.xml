@@ -6,26 +6,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/gray"
         android:id="@+id/layoutPhoto">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="9"
-            android:background="@color/gray">
+            android:layout_height="wrap_content"
+            >
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/baseline_clear_white_36dp"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/crop"
+                android:id="@+id/CropBtn"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@drawable/baseline_clear_white_36dp"
-                android:id="@+id/deleteButton"/>
+                android:id="@+id/deleteButton"
+                android:layout_gravity="bottom"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/baseline_done_white_36dp"
+                android:id="@+id/saveCropBtn"
+                android:layout_gravity="bottom"/>
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
     <LinearLayout
         android:layout_gravity="start"
         android:layout_width="300dp"
