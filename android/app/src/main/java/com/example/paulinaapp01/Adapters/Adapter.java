@@ -3,6 +3,7 @@ package com.example.paulinaapp01.Adapters;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.util.Log;
@@ -18,6 +19,8 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.paulinaapp01.Activities.PhotosActivity;
+import com.example.paulinaapp01.Activities.SelectedPhotoActivity;
 import com.example.paulinaapp01.Helpers.DatabaseManager;
 import com.example.paulinaapp01.R;
 
@@ -58,8 +61,14 @@ public class Adapter extends ArrayAdapter {
             @Override
             public void onClick(View view) {
                 Log.d("XXX","klik w obrazek " + position);
+                Intent intent = new Intent(_context, SelectedPhotoActivity.class);
+                intent.putExtra("path", _list.get(position));
+                _context.startActivity(intent);
             }
+
         });
+
+
         Uri uri = Uri.fromFile(this._list.get(position));
         img.setImageURI(uri);
         img.setScaleType(ImageView.ScaleType.CENTER_CROP);

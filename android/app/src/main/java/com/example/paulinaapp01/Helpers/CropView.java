@@ -1,9 +1,11 @@
 package com.example.paulinaapp01.Helpers;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -14,11 +16,14 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.nio.file.Path;
+
+import java.nio.file.Paths;
 
 public class CropView extends androidx.appcompat.widget.AppCompatImageView {
 
     private Paint paint;
+    private Path path;
+
 
     public CropView(@NonNull Context context) {
         super(context);
@@ -31,6 +36,7 @@ public class CropView extends androidx.appcompat.widget.AppCompatImageView {
         paint.setColor(Color.GREEN);
     }
 
+    @SuppressLint("DrawAllocation")
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -44,15 +50,21 @@ public class CropView extends androidx.appcompat.widget.AppCompatImageView {
         canvas.drawRect(100, 100, 500, 500, paint);
         Rect r = new Rect(120, 120, 520, 520);
         canvas.drawRect(r, paint);
-        paint.setColor(Color.BLACK);
-        paint.setStyle(Paint.Style.FILL);
         canvas.drawArc(200, 200, 500, 500, 30, 300, true, paint);
 
         float[] points = {45, 56, 89, 456, 123, 876, 812, 723, 65, 12};
         canvas.drawLines(points, paint);
 
-//        Path path = new Path();
-//        canvas.drawPath();
+
+        paint.setColor(Color.GREEN);
+        path = new Path();
+        path.moveTo(200, 80);
+        path.lineTo(400, 100);
+        path.lineTo(56, 891);
+        path.lineTo(788, 23);
+        path.cubicTo(788, 45, 123, 1444, 344, 1677);
+        canvas.drawPath(path, paint);
+
     }
 
     @Override

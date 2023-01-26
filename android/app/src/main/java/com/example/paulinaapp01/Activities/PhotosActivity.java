@@ -61,7 +61,7 @@ public class PhotosActivity extends AppCompatActivity {
                 iv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Log.d("xxx", "Click photo");
+                        Log.d("xxx", "Click photo" + imagepath);
                         Intent intent = new Intent(PhotosActivity.this, SelectedPhotoActivity.class);
                         intent.putExtra("path", imagepath);
                         startActivity(intent);

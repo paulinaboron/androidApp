@@ -16,6 +16,13 @@
         android:theme="@style/Theme.PaulinaApp01"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".EffectsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Activities.NetworkActivity"
             android:exported="false">
             <meta-data

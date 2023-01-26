@@ -49,7 +49,7 @@ public class SelectedPhotoActivity extends AppCompatActivity {
         ArrayList<String> list = new ArrayList();
         list.add("upload");
         list.add("share");
-        list.add("crop");
+        list.add("effects");
 
         UploadAdapter adapter = new UploadAdapter (
                 SelectedPhotoActivity.this,

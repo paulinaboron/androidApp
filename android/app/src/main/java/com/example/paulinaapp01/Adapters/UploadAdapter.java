@@ -2,6 +2,7 @@ package com.example.paulinaapp01.Adapters;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
 import com.example.paulinaapp01.Activities.AlbumsActivity;
+import com.example.paulinaapp01.Activities.EffectsActivity;
+import com.example.paulinaapp01.Activities.SelectedPhotoActivity;
 import com.example.paulinaapp01.Helpers.Networking;
 import com.example.paulinaapp01.R;
 
@@ -65,6 +68,9 @@ public class UploadAdapter extends ArrayAdapter {
                 }else if(tv.getText() == "share"){
                     share();
                 }
+                else if(tv.getText() == "effects"){
+                    effects();
+                }
             }
         });
 
@@ -104,6 +110,12 @@ public class UploadAdapter extends ArrayAdapter {
                 public void onClick(DialogInterface dialog, int which) {}});
             alert.show();
         }
+    }
+
+    public void effects(){
+        Intent intent = new Intent(_context, EffectsActivity.class);
+//        intent.putExtra("path", _list.get(position));
+        _context.startActivity(intent);
     }
 
 
