@@ -60,9 +60,9 @@ public class Adapter extends ArrayAdapter {
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("XXX","klik w obrazek " + position);
+                Log.d("XXX","klik w obrazek " + position + _list.get(position));
                 Intent intent = new Intent(_context, SelectedPhotoActivity.class);
-                intent.putExtra("path", _list.get(position));
+                intent.putExtra("path", _list.get(position).toString());
                 _context.startActivity(intent);
             }
 
@@ -155,13 +155,13 @@ public class Adapter extends ArrayAdapter {
             b.setLayoutParams(params);
 
             b.setOnClickListener(new Button.OnClickListener(){
-                @Override
-                public void onClick(View view) {
-                    Log.d("xxx", c);
-                    EditText et = (EditText) editView.findViewById(R.id.noteTitle);
-                    et.setTextColor(Color.parseColor(c));
-                }
-            }
+                                     @Override
+                                     public void onClick(View view) {
+                                         Log.d("xxx", c);
+                                         EditText et = (EditText) editView.findViewById(R.id.noteTitle);
+                                         et.setTextColor(Color.parseColor(c));
+                                     }
+                                 }
             );
 
             lColors.addView(b);

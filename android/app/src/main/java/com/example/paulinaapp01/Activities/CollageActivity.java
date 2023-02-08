@@ -75,7 +75,8 @@ public class CollageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Matrix matrix = new Matrix();
-                matrix.postRotate(90);
+                matrix.postScale(-1.0f, 1.0f);
+
 
                 Bitmap oryginal = ((BitmapDrawable) selectedIv.getDrawable()).getBitmap();
                 Bitmap rotated = Bitmap.createBitmap(oryginal, 0, 0, oryginal.getWidth(), oryginal.getHeight(), matrix, true);
@@ -89,7 +90,7 @@ public class CollageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Matrix matrix = new Matrix();
-                matrix.postScale(-1.0f, 1.0f);
+                matrix.postRotate(90);
 
                 Bitmap oryginal = ((BitmapDrawable) selectedIv.getDrawable()).getBitmap();
                 Bitmap rotated = Bitmap.createBitmap(oryginal, 0, 0, oryginal.getWidth(), oryginal.getHeight(), matrix, true);

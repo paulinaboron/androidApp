@@ -43,7 +43,7 @@ public class SelectedPhotoActivity extends AppCompatActivity {
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(SelectedPhotoActivity.this);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("ip", "192.168.119.108");
+        editor.putString("ip", "192.168.1.20");
         editor.apply();
 
         ArrayList<String> list = new ArrayList();
@@ -106,7 +106,7 @@ public class SelectedPhotoActivity extends AppCompatActivity {
                 EditText ipField = findViewById(R.id.ipField);
                 String address = String.valueOf(ipField.getText());
                 Log.d("xxx", address);
-                editor.putString("ip", "192.168.119.108");
+                editor.putString("ip", address);
                 editor.apply();
                 Toast.makeText(getApplicationContext(),"Saved",Toast.LENGTH_SHORT).show();
             }

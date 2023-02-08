@@ -28,12 +28,14 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/baseline_flip_white_36dp"
-            android:id="@+id/flipBtn"/>
+            android:id="@+id/flipBtn"
+            />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/baseline_redo_white_36dp"
-            android:id="@+id/rotateBtn"/>
+            android:id="@+id/rotateBtn"
+            android:layout_marginHorizontal="40dp"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

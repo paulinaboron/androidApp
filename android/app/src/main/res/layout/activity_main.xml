@@ -13,30 +13,6 @@
         android:layout_weight="1"
         android:background="@color/gray">
 
-<!--        <ImageView-->
-<!--            android:layout_width="80dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:contentDescription="@string/arrow"-->
-<!--            android:src="@drawable/baseline_chevron_left_white_36dp"-->
-<!--            android:layout_alignParentStart="true"-->
-<!--            />-->
-
-
-<!--        <ProgressBar-->
-<!--            android:id="@+id/simpleProgressBar"-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="100dp"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:layout_centerVertical="true"/>-->
-
-<!--        <ImageView-->
-<!--            android:layout_width="80dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:contentDescription="@string/arrow"-->
-<!--            android:src="@drawable/baseline_navigate_next_white_36dp"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            />-->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"

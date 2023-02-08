@@ -2,13 +2,16 @@ package com.example.paulinaapp01.Helpers;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.bikomobile.multipart.Multipart;
 import com.example.paulinaapp01.Activities.SelectedPhotoActivity;
@@ -27,18 +30,26 @@ public class Networking {
         Log.d("xxx", "upload " + path);
         Bitmap bmp = BitmapFactory.decodeFile(path);
 
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+
+        if (preferences.getString("ip", null) != null)
+            Log.d("xxx", preferences.getString("ip", null));
+        String ip = preferences.getString("ip", null);
+
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
 
         Multipart multipart = new Multipart(context);
         multipart.addFile("image/jpeg", "file", "plik.jpg", byteArray);
-        multipart.launchRequest("/upload",
+        multipart.launchRequest("http://" + ip + ":3000/upload",
                 response -> {
                     Log.d("xxx", "success");
+                    Toast.makeText(context, "Uploaded",Toast.LENGTH_SHORT).show();
                 },
                 error -> {
-                    Log.d("xxx", "error");
+                    Log.d("xxx", error.toString());
+                    Toast.makeText(context, "Error",Toast.LENGTH_SHORT).show();
                 });
     }
 
@@ -51,7 +62,7 @@ public class Networking {
         try {
             writer = new FileWriter(file);
             writer.append("any data");
-            writer.flush();
+            writer.flush(); 
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();

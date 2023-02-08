@@ -42,7 +42,7 @@ public class UploadAdapter extends ArrayAdapter {
         this._icons = new ArrayList<>();
         _icons.add(R.drawable.upload);
         _icons.add(R.drawable.share);
-        _icons.add(R.drawable.crop);
+        _icons.add(R.drawable.baseline_lens_blur_white_36dp);
     }
 
 

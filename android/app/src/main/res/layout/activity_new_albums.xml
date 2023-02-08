@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/baseline_expand_less_white_36dp" />
+        android:src="@drawable/baseline_add_white_36dp" />
 
 
 </RelativeLayout>
