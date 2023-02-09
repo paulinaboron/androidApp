@@ -6,11 +6,13 @@ var formidable = require('formidable');
 const fs = require("fs")
 const fsPromises = require("fs").promises
 
+const uploadFolder = path.join(__dirname, "uploads");
+
 app.use(express.static('uploads'))
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Hello!')
+    res.send('Hello!')
 })
 
 app.post('/upload', function (req, res) {
@@ -18,7 +20,7 @@ app.post('/upload', function (req, res) {
     form.keepExtensions = true
     form.multiples = true
 
-    form.uploadDir = __dirname + '/uploads/' // folder do zapisu zdjęcia
+    form.uploadDir = uploadFolder // folder do zapisu zdjęcia
 
     form.parse(req, function (err, fields, files) {
 
@@ -29,6 +31,35 @@ app.post('/upload', function (req, res) {
 
     res.send('upload')
 });
+
+app.get('/photosJson', (req, res) => {
+    const data = [];
+    fs.readdir(__dirname + '/uploads/', (err, files) => {
+        if (err) {
+            return;
+        }
+        console.log(files);
+        files.forEach(file => {
+            console.log(path.join(uploadFolder, file))
+            const stats = fs.statSync(path.join(uploadFolder, file))
+
+            let obj = {
+                name: file,
+                creationTime: stats.birthtimeMs,
+                size: stats.size,
+                url: "/uploads/" + file,
+            }
+            console.log(obj)
+            data.push(obj)
+        });
+        res.json(data);
+    })
+})
+
+app.get('/photo', (req,res) => {
+    let imageName = req.query.imgName
+    res.sendFile(path.join(uploadFolder, imageName));
+})
 
 app.post('/get_files', function (req, res) {
 
@@ -43,5 +74,5 @@ app.post('/get_files', function (req, res) {
 })
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`)
+    console.log(`Example app listening on port ${PORT}`)
 })

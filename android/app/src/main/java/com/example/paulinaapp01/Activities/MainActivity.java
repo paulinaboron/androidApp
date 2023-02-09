@@ -13,21 +13,30 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.paulinaapp01.Adapters.RecAdapter;
 import com.example.paulinaapp01.Helpers.Item;
 import com.example.paulinaapp01.R;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -144,14 +153,53 @@ public class MainActivity extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.recyclerView);
-        list.add(new Item("a", "d"));
-        list.add(new Item("b", "e"));
-        list.add(new Item("c", "f"));
         layoutManager = new LinearLayoutManager(MainActivity.this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new RecAdapter(list);
-        recyclerView.setAdapter(adapter);
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        String ip = preferences.getString("ip", null);
+
+        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+        JsonArrayRequest jsonRequest = new JsonArrayRequest(
+                Request.Method.GET,
+                "http://192.168.1.20:3000/photosJson",
+                null,
+                response -> {
+                    Log.d("xxx", "response: " + response);
+
+                    for (int i = 0; i < response.length(); i++) {
+                        JSONObject responseObj = null;
+                        try {
+                            responseObj = response.getJSONObject(i);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        Item listItem = null;
+                        try {
+                            listItem = new Item(
+                                    responseObj.getString("name"),
+                                    responseObj.getString("creationTime"),
+                                    responseObj.getString("size"),
+                                    responseObj.getString("url")
+                            );
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        list.add(listItem);
+                    }
+                    Log.d("xxx", list.toString());
+                    adapter = new RecAdapter(list, MainActivity.this);
+                    recyclerView.setAdapter(adapter);
+                },
+                error -> {
+                    Log.d("xxx", "error" + error.getMessage());
+                }
+        );
+
+        requestQueue.add(jsonRequest);
+
     }
+
 
     public void checkPermission(String permission, int requestCode) {
         // jeśli nie jest przyznane to zażądaj

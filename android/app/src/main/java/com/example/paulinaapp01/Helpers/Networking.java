@@ -62,7 +62,7 @@ public class Networking {
         try {
             writer = new FileWriter(file);
             writer.append("any data");
-            writer.flush(); 
+            writer.flush();
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
