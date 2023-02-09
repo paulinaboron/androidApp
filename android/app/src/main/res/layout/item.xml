@@ -1,26 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/itemLayout">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
-    <androidx.cardview.widget.CardView
+    <ImageView
+        android:id="@+id/recImage"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/aTxt"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/bTxt"/>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/recImage"
-            />
+        android:layout_height="match_parent"/>
 
-    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/bTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/recImage"
+        android:layout_alignTop="@id/recImage"
+        android:layout_alignRight="@id/recImage"
+        android:layout_alignBottom="@id/recImage"
+        android:layout_marginTop="30dp"
+        android:gravity="start"
+        android:text="Helloooooo"
+        android:textColor="#00ff00" />
+
+    <TextView
+        android:id="@+id/aTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/recImage"
+        android:layout_alignTop="@id/recImage"
+        android:layout_alignRight="@id/recImage"
+        android:layout_alignBottom="@id/recImage"
+        android:layout_margin="1dp"
+        android:gravity="start"
+        android:text="Hello"
+        android:textColor="#ff0000" />
 
 </RelativeLayout>

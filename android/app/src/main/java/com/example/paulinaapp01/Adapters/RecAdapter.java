@@ -53,8 +53,8 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.ViewHolder> {
                 .into(holder.img);
         holder.img.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
-        holder.aTxt.setText(listItem.getTime());
-        holder.bTxt.setText(listItem.getSize());
+        holder.aTxt.setText(" Time: " + listItem.getTime());
+        holder.bTxt.setText(" Size: " + listItem.getSize());
     }
 
 

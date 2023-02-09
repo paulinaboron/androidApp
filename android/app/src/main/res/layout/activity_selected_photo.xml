@@ -18,9 +18,19 @@
             >
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/baseline_clear_white_36dp"/>
+                android:src="@drawable/ic_baseline_wb_sunny_24"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_baseline_tonality_24"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_baseline_color_lens_24"/>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
