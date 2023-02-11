@@ -20,23 +20,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/ic_baseline_wb_sunny_24"/>
+                android:src="@drawable/ic_baseline_wb_sunny_24"
+                android:id="@+id/brightnessBtn"/>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/ic_baseline_tonality_24"/>
+                android:src="@drawable/ic_baseline_tonality_24"
+                android:id="@+id/contrastBtn"/>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:src="@drawable/ic_baseline_color_lens_24"/>
+                android:src="@drawable/ic_baseline_color_lens_24"
+                android:id="@+id/saturationBtn"/>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:src="@drawable/crop"
-                android:id="@+id/CropBtn"/>
+                android:id="@+id/cropBtn"/>
         </LinearLayout>
 
         <LinearLayout
@@ -59,6 +62,38 @@
                 android:id="@+id/saveCropBtn"
                 android:layout_gravity="bottom"/>
         </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="80dp"
+            android:id="@+id/selectedImage"/>
+
+        <RelativeLayout
+            android:id="@+id/blackout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="80dp"
+            android:background="@color/black">
+
+            <TextView
+                android:id="@+id/blackoutText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="200dp"
+                android:gravity="center"
+                android:textColor="@color/white"/>
+        </RelativeLayout>
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:min="0"
+            android:progress="1"
+            android:layout_centerVertical="true"
+            android:id="@+id/slider"/>
     </RelativeLayout>
     <LinearLayout
         android:layout_gravity="start"

@@ -72,6 +72,17 @@ public class Imaging {
         return b;
     }
 
+    public Bitmap changeSaturation(float value){
+        ColorMatrix cMatrix = new ColorMatrix();
+        cMatrix.setSaturation(value);
+        Paint paint = new Paint();
+        Bitmap b = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
+        paint.setColorFilter(new ColorMatrixColorFilter(cMatrix));
+        Canvas canvas = new Canvas(b);
+        canvas.drawBitmap(bitmap, 0, 0, paint);
+        return b;
+    }
+
     public ArrayList<Effect> getEffectsList() {
         return effectsList;
     }
