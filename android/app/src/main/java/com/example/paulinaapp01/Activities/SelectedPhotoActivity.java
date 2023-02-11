@@ -96,6 +96,8 @@ public class SelectedPhotoActivity extends AppCompatActivity {
         iv.setImageBitmap(bitmap);                // wstawienie bitmapy do ImageView
         iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
+//        iv.drawRec();
+
         imaging = new Imaging(bitmap);
 
         ImageView deleteButton = findViewById(R.id.deleteButton);

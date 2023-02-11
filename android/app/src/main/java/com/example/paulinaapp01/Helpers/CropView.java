@@ -27,7 +27,7 @@ public class CropView extends androidx.appcompat.widget.AppCompatImageView {
 
     public CropView(@NonNull Context context) {
         super(context);
-        this.setLayoutParams(new RelativeLayout.LayoutParams(600, 600));
+        this.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.STROKE);
